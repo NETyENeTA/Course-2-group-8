@@ -1,75 +1,98 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Threading.Channels;
+using System.Transactions;
 
-namespace SimpleBD
-{     
-    class Student
+
+namespace HomeWork;
+
+
+public enum Positions {
+    noob,
+    pro,
+    master,
+    gigachad,
+    sigma,
+    basiced
+}
+
+class Program
+{
+
+    public static void PracticeA()
     {
-        public string Name { get; set; }
-        public Dictionary<string, int> Grades { get; set; }
-        public List<string> Attendance { get; set; }
+        Person person1 = new("Niko", 33);
+        Person person2 = new("Roman", 25);
+        Person person3 = new("Jacob", 30);
 
-        public Student(string name)
-        {
-            Name = name;
-            Grades = new Dictionary<string, int>();
-            Attendance = new List<string>();
-        }
+        Person[] people = { person1, person2, person3 };
 
-        public void AddGrade(string subject, int grade)
-        {
-            Grades[subject] = grade;
-        }
-
-        public void AddAttendance(string date)
-        {
-            Attendance.Add(date);
-        }
+        foreach (Person person in people) person.Introduce();
     }
 
-    class SimpleDB
+    public static void PracticeB()
     {
-        private Dictionary<string, Student> students = new Dictionary<string, Student>();
+        Person person1 = new("Anna", -15);
+        Person person2 = new("Polina", -16);
+        Person person3 = new("Anya", 12);
 
-        public void AddStudent(Student student)
-        {
-            students[student.Name] = student;
-        }
 
-        public void RemoveStudent(string name)
-        {
-            students.Remove(name);
-        }
+        Person[] people = { person1, person2, person3 };
 
-        public void ShowStudentInfo(string name)
-        {
-            if (students.ContainsKey(name))
-            {
-                var student = students[name];
-                Console.WriteLine($"Name: {student.Name}");
-                Console.WriteLine("Grades:");
-                foreach (var grade in student.Grades)
-                {
-                    Console.WriteLine($"{grade.Key}: {grade.Value}");
-                }
-                Console.WriteLine("Attendance:");
-                foreach (var date in student.Attendance)
-                {
-                    Console.WriteLine(date);
-                }
-            }
-            else
-            {
-                Console.WriteLine("Student not found.");
-            }
-        }
+        foreach (Person person in people) person.IntroduceMyAge();
     }
 
-    class Program
+    static void PracticeC() 
     {
-        static void Main()
-        {
-            Console.WriteLine("Hello world!")
-        }
+        Employee employee1 = new("Bob", 22, Positions.noob);
+        Employee employee2 = new("Jon", 22, Positions.pro);
+        Employee employee3 = new("Max", 32, Positions.master);
+        Employee employee4 = new("George", 42, Positions.gigachad);
+        Employee employee5 = new("Steve", 52, Positions.sigma);
+        Employee employee6 = new("Basid", 62, Positions.basiced);
+
+        Employee[] Employees = { employee1, employee2, employee3, employee4, employee5, employee6 };
+
+        foreach (Employee person in Employees) person.IntroduceMyPosition();
     }
+
+    static void Main(string[] args)
+    {
+        PracticeA();
+        PracticeB();
+        PracticeC();
+    }
+}
+
+
+
+class Person
+{
+    public string Name { get; private set; }
+    public int Age { get; private set; } = 0;
+
+    public Person(string name, int age)
+    {
+        Name = name;
+        Age = age > 0 ? age : Age;
+    }
+
+    public void Introduce() => Console.WriteLine($"Привет, мое имя {Name}!");
+
+    public void IntroduceMyAge() => Console.WriteLine($"Мне, {Age} лет!");
+
+
+}
+
+
+class Employee : Person
+{
+    public Positions position;
+
+    public Employee(string name, int age, Positions position) : base(name, age)
+    {
+        this.position = position;
+    }
+
+    public void IntroduceMyPosition() => Console.WriteLine($"Я являюсь: {position}");
+
 }

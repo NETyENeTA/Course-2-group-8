@@ -1,13 +1,16 @@
-﻿namespace PracticeA; 
+﻿using System;
+
+
+namespace PracticeA;
 class Program
 {
     static void Main(string[] args)
     {
-        Bank bank = new Bank();
+        Bank bank = new Bank("Sberbank");
 
         // 6. Открытие нового счета
-        var account1 = bank.OpenAccount("Alexander Ivanov");
-        var account2 = bank.OpenAccount("Alexander Ivanov");
+        var account1 = bank.OpenAccount("Alexander Ivanov", 500);
+        var account2 = bank.OpenAccount("Alexander Ivanov", 200);
 
         // Внесение денег на счет 1
         account1.Deposit(1000);
@@ -38,7 +41,7 @@ class Program
         // 10. Изменение личных данных клиента
         bank.UpdateAccountHolderInfo(account1.AccountNumber, "Alexander Ivanov");
 
-        // 1. Получение счета и вывод его данных
+        // 11. Получение счета и вывод его данных
         var retrievedAccount = bank.GetAccount(account1.AccountNumber);
         if (retrievedAccount != null)
         {
