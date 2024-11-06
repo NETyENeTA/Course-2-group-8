@@ -5,8 +5,6 @@ namespace Testy
 {
     class Program
     {
-
-
         public static int Sum(int a, int b) => a + b;
         public static void Greet(string name) => Console.WriteLine($"Hello, {name[0].ToString().ToUpper() + name[1..]}!") ;
 

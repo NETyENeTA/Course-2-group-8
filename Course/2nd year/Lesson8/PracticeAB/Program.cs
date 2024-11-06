@@ -29,16 +29,13 @@ class Program
     private static double CelsiusToFahrenheit(int celsius) => celsius * 1.8 + 32;
 
     //7
-    private static int CountVowels(string s, string vowels = "аиоуеэ")
-    {
-        int result = 0;
-        foreach (char word in s.ToLower()) if (vowels.Contains(word)) result++;
-        return result;
-    }
+    private static int CountVowels(string s, string vowels = "аиоуеёяюэ") => s.ToLower().Count(c => vowels.Contains(c));
 
     //8
     private static int? GeneratePassword(string passToHack)
     {
+        if (passToHack.Length != 4 || !int.TryParse(passToHack, out _)) throw new ArgumentException("Пароль должен состоять из 4 цифр.");
+
         int count = 0;
         for (int x = 0; x < 10; x++)
             for (int y = 0; y < 10; y++)
@@ -51,7 +48,6 @@ class Program
                             Console.WriteLine("Ура! Вы взломали пароль теперь вы хакер");
                             return count;
                         }
-
                     }
         return null;
     }

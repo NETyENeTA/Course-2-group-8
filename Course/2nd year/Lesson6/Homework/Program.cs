@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace Testy
@@ -42,8 +43,11 @@ namespace Testy
         }
 
 
-        public static int[,] TransposeMatrix(int[,] matrix, int rows, int cols)
+        public static int[,] TransposeMatrix(int[,] matrix)
         {
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+
             int[,] result = new int[cols, rows];
 
             for (int i = 0; i < cols; ++i) for (int j = 0; j < rows; ++j) result[i, j] = matrix[j, i];
@@ -66,7 +70,7 @@ namespace Testy
 
             Console.WriteLine();
 
-            matrix = TransposeMatrix(matrix, rows, cols);
+            matrix = TransposeMatrix(matrix);
 
             for (int i = 0; i < cols; i++)
             {
@@ -88,7 +92,6 @@ namespace Testy
             //Transpose();
 
             Console.ReadLine(); // простая остановочка :)
-
         }
     }
 }
