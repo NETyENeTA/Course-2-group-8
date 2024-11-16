@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 
 namespace Testy
@@ -6,7 +7,7 @@ namespace Testy
     class Program
     {
         public static int Sum(int a, int b) => a + b;
-        public static void Greet(string name) => Console.WriteLine($"Hello, {name[0].ToString().ToUpper() + name[1..]}!") ;
+        public static void Greet(string? name = null) => Console.WriteLine(name != null ? $"Hello, {name[0].ToString().ToUpper() + name[1..]}!" : "Oh, you didn't write your name...");
 
         // Мы уже показывали как найти max, так что я заюзал: Math.Max();
         public static int Max(int a, int b) => Math.Max(a, b);
@@ -34,10 +35,10 @@ namespace Testy
             return Factorial(a - 1) * a;
         }
 
-        public static bool IsPrime(int a) 
+        public static bool IsPrime(int a)
         {
             if (a == 1 || a == 0) return false;
-            for (int i = 2; i < a; i++) if (a % i == 0) return false;
+            for (int i = 2; i <= Math.Sqrt(a); i++) if (a % i == 0) return false;
             return true;
         }
 
@@ -51,7 +52,7 @@ namespace Testy
 
             //Console.WriteLine(Sum(1, 3));
 
-            //Greet("tihon");
+            //Greet();
 
             //Console.WriteLine(Max(1, 3));
 
