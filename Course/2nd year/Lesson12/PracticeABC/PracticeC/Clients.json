@@ -1,0 +1,31 @@
+{
+    "Clients": {
+        "Deffault": {
+            "id": "integer",
+            "Name": "string",
+            "hash": "string"
+        },
+        "value": [
+            {
+                "id": 0,
+                "Name": "Jone",
+                "hash": "UA12-OLqe-97Kd-LL1u"
+            },
+            {
+                "id": 1,
+                "Name": "Pol",
+                "hash": "OQr1-HueN-99J1-KIL0"
+            },
+            {
+                "id": 2,
+                "Name": "Markis",
+                "hash": "UMA1-9210-HtER-koKe"
+            },
+            {
+                "id": 3,
+                "Name": "Anna",
+                "hash": "NEON-MEOw-112J-AKrD"
+            }
+        ]
+    }
+}

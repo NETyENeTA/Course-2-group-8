@@ -1,0 +1,69 @@
+{
+    "Data": {
+        "type": {
+            "id": "int",
+            "Hash": "string",
+            "products": [
+                {
+                    "hash": "string",
+                    "total": "int"
+                }
+            ],
+            "total": "int"
+        },
+        "value": [
+            {
+                "id": 0,
+                "Hash": "OQr1-HueN-99J1-KIL0",
+                "products": [
+                    {
+                        "hash": "AETR-12DE-LR12-POL1",
+                        "total": 2
+                    }
+                ],
+                "total": 200
+            },
+            {
+                "id": 1,
+                "Hash": "NEON-MEOw-112J-AKrD",
+                "products": [
+                    {
+                        "hash": "LOL1-HE1M-PQ12-0921",
+                        "total": 4
+                    }
+                ],
+                "total": 80
+            },
+            {
+                "id": 2,
+                "Hash": "UA12-OLqe-97Kd-LL1u",
+                "products": [
+                    {
+                        "hash": "LOL1-HE1M-PQ12-0921",
+                        "total": 1
+                    },
+                    {
+                        "hash": "AETR-12DE-LR12-POL1",
+                        "total": 10
+                    }
+                ],
+                "total": 1020
+            },
+            {
+                "id": 3,
+                "Hash": "UMA1-9210-HtER-koKe",
+                "products": [
+                    {
+                        "hash": "LOL1-HE1M-PQ12-0921",
+                        "total": 1
+                    },
+                    {
+                        "hash": "AETR-12DE-LR12-POL1",
+                        "total": 1
+                    }
+                ],
+                "total": 120
+            }
+        ]
+    }
+}

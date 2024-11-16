@@ -1,0 +1,54 @@
+{
+    "Market": {
+        "Name": "Trololo",
+        "Address": "Elita 5E"
+    },
+    "Products": {
+        "type": {
+            "id": "int",
+            "Name": "string",
+            "Type": "string",
+            "Producer": "string",
+            "hesh-code": {
+                "hesh": "string",
+                "code": "int"
+            }
+        },
+        "Informations": [
+            {
+                "id": 0,
+                "Name": "apple",
+                "Type": "organic",
+                "price": 100,
+                "Producer": "Organic-co",
+                "hesh-code": {
+                    "hesh": "AETR-12DE-LR12-POL1",
+                    "code": 1011
+                }
+            },
+
+            {
+                "id": 1,
+                "Name": "pen",
+                "Type": "wood",
+                "price": 20,
+                "Producer": "Pen-Master-Io",
+                "hesh-code": {
+                    "hesh": "LOL1-HE1M-PQ12-0921",
+                    "code": 10
+                }
+            }
+        ],
+        "Storage": [
+            {
+                "id": 0,
+                "value": 30
+            },
+            {
+                "code": 10,
+                "value": 0
+            }
+
+        ]
+    }
+}
