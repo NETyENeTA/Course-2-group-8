@@ -15,7 +15,8 @@ public class FileManager
         {
             using (StreamWriter writer = new StreamWriter(filePath, append)) writer.Write(text);
         }
-        catch (Exception ex) { Console.WriteLine($"Write [Error]! cause:{ex}."); }
+        catch (UnauthorizedAccessException ex) { Console.WriteLine($"Access denied to file: {ex.Message}."); }
+        catch (IOException ex) { Console.WriteLine($"I/O error while writting to file: {ex.Message}"); }
     }
 
     public string ReadFromFile()

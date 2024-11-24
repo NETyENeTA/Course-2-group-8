@@ -25,7 +25,7 @@ public class FileManager
         catch (Exception ex) { Console.WriteLine($"Write [Error]! cause:{ex}."); }
     }
 
-    public string Read()
+    public string? Read()
     {
         try
         {
@@ -36,7 +36,10 @@ public class FileManager
         return string.Empty;
     }
 
-    public void RemoveFile() => File.Delete(Path);
+    public void RemoveFile()
+    {
+        if (File.Exists(Path)) File.Delete(Path);
+    }
 
 
     public static void Write(string path, string text, bool append = false)
@@ -59,12 +62,15 @@ public class FileManager
         return string.Empty;
     }
 
-    public static void RemoveFile(string path) => File.Delete(path);
+    public static void RemoveFile(string path)
+    {
+        if (File.Exists(path)) File.Delete(path);
+    }
 
 
 }
 
-public class MyJSON <T>
+public class MyJSON<T>
 {
     private FileManager fileManager { get; set; }
 
@@ -79,7 +85,11 @@ public class MyJSON <T>
         fileManager = new FileManager(path);
     }
 
-    public T? Read() => JsonSerializer.Deserialize<T>(fileManager.Read());
+    public T? Read()
+    {
+        string? json = fileManager.Read();
+        return string.IsNullOrWhiteSpace(json) ? default : JsonSerializer.Deserialize<T>(json);
+    }
 
     public static T? Read(string path) => JsonSerializer.Deserialize<T>(FileManager.Read(path));
 
@@ -122,7 +132,7 @@ class Library
 {
     public string? libraryName { get; set; }
     public List<Book>? books { get; set; }
-    
+
 }
 
 class Book
